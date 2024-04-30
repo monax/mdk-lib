@@ -37,8 +37,7 @@
     "mdk-schema": "github:monax/mdk-schema",
     "mdk-telemetry": "github:monax/mdk-telemetry",
     "pg": "^8.11.5",
-    "pg-types": "^4.0.2",
-    "zod": "^3.23.5"
+    "pg-types": "^4.0.2"
   },
   "devDependencies": {
     "@pgtyped/cli": "^2.3.0",

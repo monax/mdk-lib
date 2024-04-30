@@ -1,10 +1,9 @@
 import { Storage } from '@google-cloud/storage';
 import { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 import fs from 'fs';
-import { ConfigSpec } from 'mdk-schema';
+import { ConfigSpec, zod as z } from 'mdk-schema';
 import { getKnownExtensionMimeType } from 'mdk-schema/dist/mime-types.js';
 import { coreTelemetry } from 'mdk-telemetry';
-import * as z from 'zod';
 
 export { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 

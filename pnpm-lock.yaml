@@ -22,19 +22,16 @@ dependencies:
     version: github.com/monax/mdk-db/4cf05025b5bf8f6964678ef2a70717dae2b15d1f(typescript@5.4.5)
   mdk-schema:
     specifier: github:monax/mdk-schema
-    version: github.com/monax/mdk-schema/7408496a03cfa0f811b3a6ef2ddf02abed7b4cab(typescript@5.4.5)
+    version: github.com/monax/mdk-schema/0dfca0210a5429988f177c40b9711420624b548f(typescript@5.4.5)
   mdk-telemetry:
     specifier: github:monax/mdk-telemetry
-    version: github.com/monax/mdk-telemetry/3ffbf2dbd21164e499f7909896d098153a7ab7bd(typescript@5.4.5)
+    version: github.com/monax/mdk-telemetry/3736aec034780a6398f89a443595d47dc6693d09(typescript@5.4.5)
   pg:
     specifier: ^8.11.5
     version: 8.11.5
   pg-types:
     specifier: ^4.0.2
     version: 4.0.2
-  zod:
-    specifier: ^3.23.5
-    version: 3.23.5
 
 devDependencies:
   '@pgtyped/cli':
@@ -3770,8 +3767,8 @@ packages:
     name: mdk-db
     version: 1.0.0
     dependencies:
-      mdk-schema: github.com/monax/mdk-schema/7408496a03cfa0f811b3a6ef2ddf02abed7b4cab(typescript@5.4.5)
-      mdk-telemetry: github.com/monax/mdk-telemetry/3ffbf2dbd21164e499f7909896d098153a7ab7bd(typescript@5.4.5)
+      mdk-schema: github.com/monax/mdk-schema/0dfca0210a5429988f177c40b9711420624b548f(typescript@5.4.5)
+      mdk-telemetry: github.com/monax/mdk-telemetry/3736aec034780a6398f89a443595d47dc6693d09(typescript@5.4.5)
       pg: 8.11.5
       pg-types: 4.0.2
     transitivePeerDependencies:
@@ -3781,9 +3778,9 @@ packages:
       - utf-8-validate
     dev: false
 
-  github.com/monax/mdk-schema/7408496a03cfa0f811b3a6ef2ddf02abed7b4cab(typescript@5.4.5):
-    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/7408496a03cfa0f811b3a6ef2ddf02abed7b4cab}
-    id: github.com/monax/mdk-schema/7408496a03cfa0f811b3a6ef2ddf02abed7b4cab
+  github.com/monax/mdk-schema/0dfca0210a5429988f177c40b9711420624b548f(typescript@5.4.5):
+    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/0dfca0210a5429988f177c40b9711420624b548f}
+    id: github.com/monax/mdk-schema/0dfca0210a5429988f177c40b9711420624b548f
     name: mdk-schema
     version: 1.0.3
     dependencies:
@@ -3799,18 +3796,17 @@ packages:
       - utf-8-validate
     dev: false
 
-  github.com/monax/mdk-telemetry/3ffbf2dbd21164e499f7909896d098153a7ab7bd(typescript@5.4.5):
-    resolution: {tarball: https://codeload.github.com/monax/mdk-telemetry/tar.gz/3ffbf2dbd21164e499f7909896d098153a7ab7bd}
-    id: github.com/monax/mdk-telemetry/3ffbf2dbd21164e499f7909896d098153a7ab7bd
+  github.com/monax/mdk-telemetry/3736aec034780a6398f89a443595d47dc6693d09(typescript@5.4.5):
+    resolution: {tarball: https://codeload.github.com/monax/mdk-telemetry/tar.gz/3736aec034780a6398f89a443595d47dc6693d09}
+    id: github.com/monax/mdk-telemetry/3736aec034780a6398f89a443595d47dc6693d09
     name: mdk-telemetry
     version: 1.0.0
     dependencies:
       '@sentry/node': 7.112.2
       jsonpath-plus: 8.1.0
-      mdk-schema: github.com/monax/mdk-schema/7408496a03cfa0f811b3a6ef2ddf02abed7b4cab(typescript@5.4.5)
+      mdk-schema: github.com/monax/mdk-schema/0dfca0210a5429988f177c40b9711420624b548f(typescript@5.4.5)
       nanoid: 5.0.7
       prom-client: 15.1.2
-      zod: 3.23.5
     transitivePeerDependencies:
       - bufferutil
       - typescript

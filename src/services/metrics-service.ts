@@ -1,8 +1,7 @@
 import express, { Express } from 'express';
 import { Server } from 'http';
-import { ConfigBag } from 'mdk-schema';
+import { ConfigBag, zod as z } from 'mdk-schema';
 import { Telemetry } from 'mdk-telemetry';
-import * as z from 'zod';
 import { Cancellation, Context } from '../context/context.js';
 
 export type MetricsConfig = ConfigBag<typeof MetricsConfigBag>;
