@@ -1,7 +1,7 @@
 import { Analytics } from '@segment/analytics-node';
 import type { AnalyticsContext, ConfigBag, IAnalyticsEvent, IdentityOptions } from 'mdk-schema';
-import { zod as z } from 'mdk-schema';
 import { coreTelemetry } from 'mdk-telemetry';
+import { z } from 'zod';
 
 export type AnalyticsConfig = ConfigBag<typeof AnalyticsConfigBag>;
 export const AnalyticsConfigBag = {
