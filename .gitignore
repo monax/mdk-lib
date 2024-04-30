@@ -1,0 +1,14 @@
+tsconfig.tsbuildinfo
+.DS_Store
+.envrc
+.idea/
+
+node_modules
+dist
+build
+
+# Logs
+logs
+*.log
+npm-debug.log*
+

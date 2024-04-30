@@ -1,0 +1,23 @@
+{
+  "transforms": [
+    {
+      "mode": "sql",
+      "include": "**/*.sql",
+      "emitTemplate": "{{dir}}/{{name}}.types.ts"
+    }
+  ],
+  "failOnError": true,
+  "camelCaseColumnNames": false,
+  "srcDir": "./src",
+  "db": {
+    "user": "postgres",
+    "dbName": "monax",
+    "password": "postgres",
+    "host": "localhost",
+    "port": 5432
+  },
+  "typesOverrides": {
+    "uuid": "mdk-schema/dist/uuid.js#UUID",
+    "numeric": "mdk-schema/dist/string-decimal.js#StringDecimal"
+  }
+}
