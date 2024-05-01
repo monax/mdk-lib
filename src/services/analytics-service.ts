@@ -1,12 +1,6 @@
 import { Analytics } from '@segment/analytics-node';
-import type { AnalyticsContext, ConfigBag, IAnalyticsEvent, IdentityOptions } from 'mdk-schema';
+import type { AnalyticsConfig, AnalyticsContext, IAnalyticsEvent, IdentityOptions } from 'mdk-schema';
 import { coreTelemetry } from 'mdk-telemetry';
-import { z } from 'zod';
-
-export type AnalyticsConfig = ConfigBag<typeof AnalyticsConfigBag>;
-export const AnalyticsConfigBag = {
-  SEGMENT_ANALYTICS_API_KEY_BACKEND: z.string().optional(),
-} as const;
 
 export type IAnalyticsService = InstanceType<typeof AnalyticsService>;
 

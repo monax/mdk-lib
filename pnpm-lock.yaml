@@ -25,7 +25,7 @@ dependencies:
     version: github.com/monax/mdk-db/e71ba3871cbc3726ef0590ad4d59ceafb8463ef4(typescript@5.4.5)(zod@3.23.5)
   mdk-schema:
     specifier: github:monax/mdk-schema
-    version: github.com/monax/mdk-schema/2464af46b98c1addbda5b9373429ab408b682728(typescript@5.4.5)(zod@3.23.5)
+    version: github.com/monax/mdk-schema/673dbbebfc571642478771068eebda77539ecaa6(typescript@5.4.5)(zod@3.23.5)
   mdk-telemetry:
     specifier: github:monax/mdk-telemetry
     version: github.com/monax/mdk-telemetry/131149852b01e44396aa2f11e80ddc0f7ac830f7(typescript@5.4.5)
@@ -3782,7 +3782,7 @@ packages:
     name: mdk-db
     version: 1.0.0
     dependencies:
-      mdk-schema: github.com/monax/mdk-schema/2464af46b98c1addbda5b9373429ab408b682728(typescript@5.4.5)(zod@3.23.5)
+      mdk-schema: github.com/monax/mdk-schema/673dbbebfc571642478771068eebda77539ecaa6(typescript@5.4.5)(zod@3.23.5)
       mdk-telemetry: github.com/monax/mdk-telemetry/131149852b01e44396aa2f11e80ddc0f7ac830f7(typescript@5.4.5)
       pg: 8.11.5
       pg-types: 4.0.2
@@ -3794,9 +3794,9 @@ packages:
       - zod
     dev: false
 
-  github.com/monax/mdk-schema/2464af46b98c1addbda5b9373429ab408b682728(typescript@5.4.5)(zod@3.23.5):
-    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/2464af46b98c1addbda5b9373429ab408b682728}
-    id: github.com/monax/mdk-schema/2464af46b98c1addbda5b9373429ab408b682728
+  github.com/monax/mdk-schema/673dbbebfc571642478771068eebda77539ecaa6(typescript@5.4.5)(zod@3.23.5):
+    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/673dbbebfc571642478771068eebda77539ecaa6}
+    id: github.com/monax/mdk-schema/673dbbebfc571642478771068eebda77539ecaa6
     name: mdk-schema
     version: 1.0.3
     peerDependencies:
@@ -3826,7 +3826,7 @@ packages:
     dependencies:
       '@sentry/node': 7.112.2
       jsonpath-plus: 8.1.0
-      mdk-schema: github.com/monax/mdk-schema/2464af46b98c1addbda5b9373429ab408b682728(typescript@5.4.5)(zod@3.23.5)
+      mdk-schema: github.com/monax/mdk-schema/673dbbebfc571642478771068eebda77539ecaa6(typescript@5.4.5)(zod@3.23.5)
       nanoid: 5.0.7
       prom-client: 15.1.2
       zod: 3.23.5

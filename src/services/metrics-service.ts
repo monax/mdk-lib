@@ -1,15 +1,10 @@
 import express, { Express } from 'express';
 import { Server } from 'http';
-import { ConfigBag } from 'mdk-schema';
+import type { MetricsConfig } from 'mdk-schema';
 import { Telemetry } from 'mdk-telemetry';
-import { z } from 'zod';
 import { Cancellation, Context } from '../context/context.js';
 
-export type MetricsConfig = ConfigBag<typeof MetricsConfigBag>;
-export const MetricsConfigBag = {
-  METRICS_PORT: z.coerce.number().int().optional(),
-  METRICS_LISTEN_ADDRESS: z.string().optional(),
-} as const;
+export type IMetricsService = InstanceType<typeof MetricsService>;
 
 export class MetricsService {
   static async run(ctx: Context, config: MetricsConfig): Promise<Cancellation> {

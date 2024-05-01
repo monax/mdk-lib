@@ -1,24 +1,13 @@
 import { Storage } from '@google-cloud/storage';
 import { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 import fs from 'fs';
-import { ConfigSpec } from 'mdk-schema';
+import type { StorageConfig } from 'mdk-schema';
 import { getKnownExtensionMimeType } from 'mdk-schema/dist/mime-types.js';
 import { coreTelemetry } from 'mdk-telemetry';
-import { z } from 'zod';
 
 export { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 
 export type BucketType = 'public' | 'private';
-
-export type StorageConfig = ConfigSpec<typeof StorageConfigBag>;
-export const StorageConfigBag = {
-  GCP_PROJECT_ID: z.string(),
-  GCP_SERVICE_ACCOUNT: z.string(),
-  GCP_KEY_FILE: z.string().optional(),
-  GCS_HOST: z.string(),
-  GCS_PUBLIC_FILES_BUCKET: z.string(),
-  GCS_PRIVATE_FILES_BUCKET: z.string(),
-} as const;
 
 export type IStorageService = InstanceType<typeof StorageService>;
 
