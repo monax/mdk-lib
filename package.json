@@ -14,6 +14,7 @@
     "dist"
   ],
   "exports": {
+    "./config": "./dist/config/index.js",
     "./context": "./dist/context/index.js",
     "./loop": "./dist/loop/index.js",
     "./repos": "./dist/repos/index.js",
@@ -33,6 +34,7 @@
     "@google-cloud/storage": "^7.10.2",
     "@pgtyped/runtime": "^2.3.0",
     "@segment/analytics-node": "^2.1.2",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mdk-db": "github:monax/mdk-db",
     "mdk-schema": "github:monax/mdk-schema",
