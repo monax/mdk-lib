@@ -1,6 +1,6 @@
-import { coreTelemetry } from 'mdk-telemetry';
 import pg from 'pg';
 import { format } from 'util';
+import { coreTelemetry } from '../telemetry/core.js';
 import { initPgParsers } from './parsers.js';
 import { AnyQuery, formatQuery, Querier } from './query.js';
 
