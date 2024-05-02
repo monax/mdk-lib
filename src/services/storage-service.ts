@@ -3,7 +3,7 @@ import { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.
 import fs from 'fs';
 import type { StorageConfig } from 'mdk-schema';
 import { getKnownExtensionMimeType } from 'mdk-schema/dist/mime-types.js';
-import { coreTelemetry } from 'mdk-telemetry';
+import { coreTelemetry } from '../telemetry/core.js';
 
 export { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 

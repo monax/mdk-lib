@@ -16,9 +16,11 @@
   "exports": {
     "./config": "./dist/config/index.js",
     "./context": "./dist/context/index.js",
+    "./db": "./dist/db/index.js",
     "./loop": "./dist/loop/index.js",
     "./repos": "./dist/repos/index.js",
-    "./services": "./dist/services/index.js"
+    "./services": "./dist/services/index.js",
+    "./telemetry": "./dist/telemetry/index.js"
   },
   "scripts": {
     "build": "pnpm build:ts",
@@ -36,9 +38,7 @@
     "@segment/analytics-node": "^2.1.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mdk-db": "github:monax/mdk-db",
     "mdk-schema": "github:monax/mdk-schema",
-    "mdk-telemetry": "github:monax/mdk-telemetry",
     "pg": "^8.11.5",
     "pg-types": "^4.0.2",
     "zod": "^3.23.5"

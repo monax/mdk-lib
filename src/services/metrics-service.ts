@@ -1,8 +1,8 @@
 import express, { Express } from 'express';
 import { Server } from 'http';
 import type { MetricsConfig } from 'mdk-schema';
-import { Telemetry } from 'mdk-telemetry';
 import { Cancellation, Context } from '../context/context.js';
+import { Telemetry } from '../telemetry/telemetry.js';
 
 export type IMetricsService = InstanceType<typeof MetricsService>;
 

@@ -20,15 +20,9 @@ dependencies:
   express:
     specifier: ^4.19.2
     version: 4.19.2
-  mdk-db:
-    specifier: github:monax/mdk-db
-    version: github.com/monax/mdk-db/c7321d4ecf1acc872e060030a2d88062432070e0(typescript@5.4.5)(zod@3.23.5)
   mdk-schema:
     specifier: github:monax/mdk-schema
     version: github.com/monax/mdk-schema/3088d570bde153741918b090ae5a25be07cebb9b(typescript@5.4.5)(zod@3.23.5)
-  mdk-telemetry:
-    specifier: github:monax/mdk-telemetry
-    version: github.com/monax/mdk-telemetry/131149852b01e44396aa2f11e80ddc0f7ac830f7(typescript@5.4.5)
   pg:
     specifier: ^8.11.5
     version: 8.11.5
@@ -453,11 +447,6 @@ packages:
       fastq: 1.17.1
     dev: true
 
-  /@opentelemetry/api@1.8.0:
-    resolution: {integrity: sha512-I/s6F7yKUDdtMsoBWXJe8Qz40Tui5vsuKCWJEWVL+5q9sSWRzzx6v2KeNsOBEwd94j0eWkpWCH4yB6rZg9Mf0w==}
-    engines: {node: '>=8.0.0'}
-    dev: false
-
   /@pgtyped/cli@2.3.0(typescript@5.4.5):
     resolution: {integrity: sha512-mSCx3BQW4IkfMyAOdCJZSYo2+G6rRaP05TkIMCLxTl+qiAyDyPiTwnYHCfcLV9ZHvloZ03UEUMLyOySapq5eyw==}
     engines: {node: '>=14.16'}
@@ -715,56 +704,6 @@ packages:
       tslib: 2.6.2
     transitivePeerDependencies:
       - encoding
-    dev: false
-
-  /@sentry-internal/tracing@7.112.2:
-    resolution: {integrity: sha512-fT1Y46J4lfXZkgFkb03YMNeIEs2xS6jdKMoukMFQfRfVvL9fSWEbTgZpHPd/YTT8r2i082XzjtAoQNgklm/0Hw==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/core': 7.112.2
-      '@sentry/types': 7.112.2
-      '@sentry/utils': 7.112.2
-    dev: false
-
-  /@sentry/core@7.112.2:
-    resolution: {integrity: sha512-gHPCcJobbMkk0VR18J65WYQTt3ED4qC6X9lHKp27Ddt63E+MDGkG6lvYBU1LS8cV7CdyBGC1XXDCfor61GvLsA==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.112.2
-      '@sentry/utils': 7.112.2
-    dev: false
-
-  /@sentry/integrations@7.112.2:
-    resolution: {integrity: sha512-ioC2yyU6DqtLkdmWnm87oNvdn2+9oKctJeA4t+jkS6JaJ10DcezjCwiLscX4rhB9aWJV3IWF7Op0O6K3w0t2Hg==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/core': 7.112.2
-      '@sentry/types': 7.112.2
-      '@sentry/utils': 7.112.2
-      localforage: 1.10.0
-    dev: false
-
-  /@sentry/node@7.112.2:
-    resolution: {integrity: sha512-MNzkqER8jc2xOS3ArkCLH5hakzu15tcjeC7qjU7rQ1Ms4WuV+MG0docSRESux0/p23Qjzf9tZOc8C5Eq+Sxduw==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry-internal/tracing': 7.112.2
-      '@sentry/core': 7.112.2
-      '@sentry/integrations': 7.112.2
-      '@sentry/types': 7.112.2
-      '@sentry/utils': 7.112.2
-    dev: false
-
-  /@sentry/types@7.112.2:
-    resolution: {integrity: sha512-kCMLt7yhY5OkWE9MeowlTNmox9pqDxcpvqguMo4BDNZM5+v9SEb1AauAdR78E1a1V8TyCzjBD7JDfXWhvpYBcQ==}
-    engines: {node: '>=8'}
-    dev: false
-
-  /@sentry/utils@7.112.2:
-    resolution: {integrity: sha512-OjLh0hx0t1EcL4ZIjf+4svlmmP+tHUDGcr5qpFWH78tjmkPW4+cqPuZCZfHSuWcDdeiaXi8TnYoVRqDcJKK/eQ==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.112.2
     dev: false
 
   /@sinclair/typebox@0.27.8:
@@ -1229,10 +1168,6 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
     dev: true
-
-  /bintrees@1.0.2:
-    resolution: {integrity: sha512-VOMgTMwjAaUG580SXn3LacVgjurrbMme7ZZNYGSSV7mmtY6QQRh0Eg3pwIcntQ77DErK1L0NxkbetjcoXzVwKw==}
-    dev: false
 
   /body-parser@1.20.2:
     resolution: {integrity: sha512-ml9pReCu3M61kGlqoTm2umSXTlRTuGTx0bfYj+uIUKKYycG5NtSbeetV3faSU6R7ajOPw0g/J1PvK4qNy7s5bA==}
@@ -2245,10 +2180,6 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /immediate@3.0.6:
-    resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
-    dev: false
-
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -2408,12 +2339,6 @@ packages:
       graceful-fs: 4.2.11
     dev: true
 
-  /jsonpath-plus@8.1.0:
-    resolution: {integrity: sha512-qVTiuKztFGw0dGhYi3WNqvddx3/SHtyDT0xJaeyz4uP0d1tkpG+0y5uYQ4OcIo1TLAz3PE/qDOW9F0uDt3+CTw==}
-    engines: {node: '>=14.0.0'}
-    hasBin: true
-    dev: false
-
   /jwa@2.0.0:
     resolution: {integrity: sha512-jrZ2Qx916EA+fq9cEAeCROWPTfCwi1IVHqT2tapuqLEVVDKFDENFw1oL+MwrTvH6msKxsd1YTDVw6uKEcsrLEA==}
     dependencies:
@@ -2443,12 +2368,6 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /lie@3.1.1:
-    resolution: {integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==}
-    dependencies:
-      immediate: 3.0.6
-    dev: false
-
   /local-pkg@0.5.0:
     resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
     engines: {node: '>=14'}
@@ -2456,12 +2375,6 @@ packages:
       mlly: 1.7.0
       pkg-types: 1.1.0
     dev: true
-
-  /localforage@1.10.0:
-    resolution: {integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==}
-    dependencies:
-      lie: 3.1.1
-    dev: false
 
   /locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
@@ -2618,12 +2531,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
-
-  /nanoid@5.0.7:
-    resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
-    dev: false
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
@@ -3018,14 +2925,6 @@ packages:
       react-is: 18.3.1
     dev: true
 
-  /prom-client@15.1.2:
-    resolution: {integrity: sha512-on3h1iXb04QFLLThrmVYg1SChBQ9N1c+nKAjebBjokBqipddH3uxmOUcEkTnzmJ8Jh/5TSUnUqS40i2QB2dJHQ==}
-    engines: {node: ^16 || ^18 || >=20}
-    dependencies:
-      '@opentelemetry/api': 1.8.0
-      tdigest: 0.1.2
-    dev: false
-
   /proxy-addr@2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
     engines: {node: '>= 0.10'}
@@ -3375,12 +3274,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
-
-  /tdigest@0.1.2:
-    resolution: {integrity: sha512-+G0LLgjjo9BZX2MfdvPfH+MKLCrxlXSYec5DaPYP1fe6Iyhf0/fSmJ0bFiZ1F8BT6cGXl2LpltQptzjXKWEkKA==}
-    dependencies:
-      bintrees: 1.0.2
-    dev: false
 
   /teeny-request@9.0.0:
     resolution: {integrity: sha512-resvxdc6Mgb7YEThw6G6bExlXKkv6+YbuzGg9xuXxSgxJF7Ozs+o8Y9+2R3sArdWdW8nOokoQb1yrpFB0pQK2g==}
@@ -3776,24 +3669,6 @@ packages:
     resolution: {integrity: sha512-fkwiq0VIQTksNNA131rDOsVJcns0pfVUjHzLrNBiF/O/Xxb5lQyEXkhZWcJ7npWsYlvs+h0jFWXXy4X46Em1JA==}
     dev: false
 
-  github.com/monax/mdk-db/c7321d4ecf1acc872e060030a2d88062432070e0(typescript@5.4.5)(zod@3.23.5):
-    resolution: {tarball: https://codeload.github.com/monax/mdk-db/tar.gz/c7321d4ecf1acc872e060030a2d88062432070e0}
-    id: github.com/monax/mdk-db/c7321d4ecf1acc872e060030a2d88062432070e0
-    name: mdk-db
-    version: 1.0.0
-    dependencies:
-      mdk-schema: github.com/monax/mdk-schema/3088d570bde153741918b090ae5a25be07cebb9b(typescript@5.4.5)(zod@3.23.5)
-      mdk-telemetry: github.com/monax/mdk-telemetry/131149852b01e44396aa2f11e80ddc0f7ac830f7(typescript@5.4.5)
-      pg: 8.11.5
-      pg-types: 4.0.2
-    transitivePeerDependencies:
-      - bufferutil
-      - pg-native
-      - typescript
-      - utf-8-validate
-      - zod
-    dev: false
-
   github.com/monax/mdk-schema/3088d570bde153741918b090ae5a25be07cebb9b(typescript@5.4.5)(zod@3.23.5):
     resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/3088d570bde153741918b090ae5a25be07cebb9b}
     id: github.com/monax/mdk-schema/3088d570bde153741918b090ae5a25be07cebb9b
@@ -3811,24 +3686,6 @@ packages:
       https: 1.0.0
       uuidv7: 0.6.3
       viem: 1.21.4(typescript@5.4.5)(zod@3.23.5)
-      zod: 3.23.5
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-    dev: false
-
-  github.com/monax/mdk-telemetry/131149852b01e44396aa2f11e80ddc0f7ac830f7(typescript@5.4.5):
-    resolution: {tarball: https://codeload.github.com/monax/mdk-telemetry/tar.gz/131149852b01e44396aa2f11e80ddc0f7ac830f7}
-    id: github.com/monax/mdk-telemetry/131149852b01e44396aa2f11e80ddc0f7ac830f7
-    name: mdk-telemetry
-    version: 1.0.0
-    dependencies:
-      '@sentry/node': 7.112.2
-      jsonpath-plus: 8.1.0
-      mdk-schema: github.com/monax/mdk-schema/3088d570bde153741918b090ae5a25be07cebb9b(typescript@5.4.5)(zod@3.23.5)
-      nanoid: 5.0.7
-      prom-client: 15.1.2
       zod: 3.23.5
     transitivePeerDependencies:
       - bufferutil

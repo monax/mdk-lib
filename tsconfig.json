@@ -12,7 +12,6 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "inlineSources": true,
-    "jsx": "react-jsx",
     "declarationMap": true,
     "declaration": true,
     "lib": ["es2016", "esnext"]

@@ -1,6 +1,6 @@
-import type { Querier } from 'mdk-db';
-import { coreTelemetry } from 'mdk-telemetry';
+import type { Querier } from '../db/query.js';
 import * as q from '../queries/lock.types.js';
+import { coreTelemetry } from '../telemetry/core.js';
 
 export type ILocksRepo = InstanceType<typeof LocksRepo>;
 export type LocksFrame = { locks: ILocksRepo };
