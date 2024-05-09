@@ -31,7 +31,7 @@ importers:
         version: 8.1.0
       mdk-schema:
         specifier: github:monax/mdk-schema
-        version: https://codeload.github.com/monax/mdk-schema/tar.gz/e47453fe50c5442ffb1cb8959e2bbb4582f20a38(typescript@5.4.5)(zod@3.23.5)
+        version: https://codeload.github.com/monax/mdk-schema/tar.gz/53cdc929b5f2f7cf20e680ec6c71454eb91c82a5(typescript@5.4.5)(zod@3.23.5)
       nanoid:
         specifier: ^5.0.7
         version: 5.0.7
@@ -625,8 +625,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  bigdecimal.js@1.3.1:
-    resolution: {integrity: sha512-ovAaZP2zB3N+qdY/c7FI19FiMUl4wpM/x8IqL17jiUBwqacP5rY0xJoCHjTAF+++g9+hRGqIpQXpX893Bd8x4Q==}
+  bigdecimal.js@1.3.0:
+    resolution: {integrity: sha512-qGFPzhAjwv3iHqvScd/IclolF9GJGkH0Yf/HKcMCXmP3qK0qBAKbrxLFVRZC3KjE0h6ENUHB5IatYV+IV+FP5w==}
     engines: {node: '>=10.4.0'}
 
   bignumber.js@9.1.2:
@@ -1094,8 +1094,8 @@ packages:
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
-  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/e47453fe50c5442ffb1cb8959e2bbb4582f20a38:
-    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/e47453fe50c5442ffb1cb8959e2bbb4582f20a38}
+  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/53cdc929b5f2f7cf20e680ec6c71454eb91c82a5:
+    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/53cdc929b5f2f7cf20e680ec6c71454eb91c82a5}
     version: 1.0.3
     peerDependencies:
       zod: 3.23.5
@@ -2244,7 +2244,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  bigdecimal.js@1.3.1: {}
+  bigdecimal.js@1.3.0: {}
 
   bignumber.js@9.1.2: {}
 
@@ -2794,9 +2794,9 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/e47453fe50c5442ffb1cb8959e2bbb4582f20a38(typescript@5.4.5)(zod@3.23.5):
+  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/53cdc929b5f2f7cf20e680ec6c71454eb91c82a5(typescript@5.4.5)(zod@3.23.5):
     dependencies:
-      bigdecimal.js: 1.3.1
+      bigdecimal: bigdecimal.js@1.3.0
       buffer: 6.0.3
       date-fns: 3.6.0
       https: 1.0.0
