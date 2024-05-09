@@ -1,7 +1,7 @@
-import express, { Express } from 'express';
-import { Server } from 'http';
+import type { Server } from 'node:http';
+import express, { type Express } from 'express';
 import type { MetricsConfig } from 'mdk-schema';
-import { Cancellation, Context } from '../context/context.js';
+import { type Cancellation, Context } from '../context/context.js';
 import { Telemetry } from '../telemetry/telemetry.js';
 
 export type IMetricsService = InstanceType<typeof MetricsService>;
@@ -40,7 +40,7 @@ export class MetricsService {
 
     const telemetry = Telemetry.get();
 
-    this.server.get('/metrics', async (req, res) => {
+    this.server.get('/metrics', async (_req, res) => {
       try {
         res.set('Content-Type', telemetry.register.contentType);
         res.end(await telemetry.register.metrics());

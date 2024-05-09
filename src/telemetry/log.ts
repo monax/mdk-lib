@@ -1,6 +1,6 @@
 import { JSONPath } from 'jsonpath-plus';
 import { LogLevel } from 'mdk-schema';
-import { AnyClass, AnyFunction, logLevelMap } from './common.js';
+import { type AnyClass, type AnyFunction, logLevelMap } from './common.js';
 
 // -----
 
@@ -41,7 +41,7 @@ export function logParams(...paths: string[]): unknown;
 export function logParams(opts: LogDetailOpts): unknown;
 
 export function logParams(optsOrPaths: string | LogDetailOpts, ...paramsRest: string[]) {
-  return function (originalMethod: AnyFunction, context: ClassMethodDecoratorContext) {
+  return (originalMethod: AnyFunction, context: ClassMethodDecoratorContext) => {
     const isOpts = typeof optsOrPaths !== 'string';
     const ll: LogLevel = isOpts ? optsOrPaths.minLogLevel : 'trace';
     const paramPaths = isOpts ? optsOrPaths.paths : [optsOrPaths, ...paramsRest];
@@ -67,7 +67,7 @@ export function logResult(...paths: string[]): unknown;
 export function logResult(opts: LogDetailOpts): unknown;
 
 export function logResult(optsOrPaths?: string | LogDetailOpts, ...pathsRest: string[]) {
-  return function (originalMethod: AnyFunction, context: ClassMethodDecoratorContext) {
+  return (originalMethod: AnyFunction, context: ClassMethodDecoratorContext) => {
     const isOpts = typeof optsOrPaths !== 'string';
     const ll: LogLevel = isOpts && optsOrPaths ? optsOrPaths.minLogLevel : 'trace';
     const paths = !optsOrPaths ? ['$'] : isOpts ? optsOrPaths.paths : [optsOrPaths, ...pathsRest];
@@ -85,7 +85,7 @@ export function logExceptions(minLogLevel: LogLevel = 'debug') {
   return function logExceptions(originalMethod: AnyFunction, context: ClassMethodDecoratorContext) {
     return logLevel > logLevelMap[minLogLevel]
       ? originalMethod
-      : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      : // biome-ignore lint/suspicious/noExplicitAny: just any
         function (this: AnyClass, ...args: any[]) {
           try {
             return originalMethod.apply(this, args);
@@ -108,7 +108,7 @@ function logKernel(
 ) {
   const methodName = String(context.name);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: just any
   return function (this: AnyClass, ...args: any[]) {
     // Set up a console log helper function
     correlationIndex++;
@@ -138,6 +138,7 @@ function logKernel(
           }
         }
       },
+      // biome-ignore lint/suspicious/noEmptyBlockStatements: todo
       () => {},
     );
 

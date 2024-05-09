@@ -1,4 +1,4 @@
-import { TypeId } from 'pg-types';
+import type { TypeId } from 'pg-types';
 
 export interface Querier {
   query<R extends QueryResultRow = QueryResultRow, I extends unknown[] = unknown[]>(
@@ -16,7 +16,7 @@ export function formatQuery(query: AnyQuery): string {
     return query;
   }
   const { name = 'unknown', text, values } = query;
-  return `[${name}: '${text}' with values [${values?.join(`, `) || ''}] ]`;
+  return `[${name}: '${text}' with values [${values?.join(', ') || ''}] ]`;
 }
 
 // --- Types below lifted from 'pg' to avoid pulling in pg-native dependencies ---
@@ -47,7 +47,7 @@ export interface QueryResultBase {
 }
 
 export interface CustomTypesConfig {
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  // biome-ignore lint/suspicious/noExplicitAny: just any
   getTypeParser: (id: TypeId | number, format?: 'text' | 'binary') => any;
 }
 
@@ -58,7 +58,7 @@ export interface QueryConfig<I extends unknown[] = unknown[]> {
   types?: CustomTypesConfig | undefined;
 }
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+// biome-ignore lint/suspicious/noExplicitAny: just any
 export type AnyQuery<I extends any[] = any[]> = string | QueryConfig<I>;
 
 export interface PreparedStatement<P> {

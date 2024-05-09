@@ -1,8 +1,8 @@
-import { PgConfig } from 'mdk-schema';
-import { PoolConfig, default as Postgres, QueryResult, QueryResultRow } from 'pg';
+import type { PgConfig } from 'mdk-schema';
+import { type PoolConfig, default as Postgres, type QueryResult, type QueryResultRow } from 'pg';
 import { coreTelemetry } from '../../telemetry/core.js';
 import type { AnyQuery, Querier } from '../query.js';
-import { ITransactor, PostgresErrorCodes, READ_ONLY, TxConfig, defaultConfig } from '../transactor.js';
+import { type ITransactor, PostgresErrorCodes, READ_ONLY, type TxConfig, defaultConfig } from '../transactor.js';
 
 @coreTelemetry
 export class Transactor implements Querier, ITransactor {
@@ -24,7 +24,7 @@ export class Transactor implements Querier, ITransactor {
     });
 
     this.pool.on('connect', (client) => {
-      client.query(`SET search_path TO public;`).catch((err) => {
+      client.query('SET search_path TO public;').catch((err) => {
         console.error(`Could not configure client on first connection: ${err.stack}`);
         process.exit(1);
       });
@@ -102,9 +102,9 @@ async function transact<T>(
     // Automatic retries
     if (serializationRetries > 0 && getErrorCode(err) === PostgresErrorCodes.SerializationFailureCode) {
       // Scale backoff according to execution time
-      backoffMs ??= Date.now() - start;
-      await sleepWithJitter(backoffMs);
-      return transact(querier, f, { ...txConfig, serializationRetries: serializationRetries - 1 }, backoffMs * 2);
+      const realBackoffMs = backoffMs ?? Date.now() - start;
+      await sleepWithJitter(realBackoffMs);
+      return transact(querier, f, { ...txConfig, serializationRetries: serializationRetries - 1 }, realBackoffMs * 2);
     }
     throw err;
   }
@@ -139,6 +139,5 @@ function wrapQuerier(querier: Querier): Querier {
 function sleepWithJitter(ms: number): Promise<void> {
   // Jitter by up to a quarter of the specified wait time
   const jitter = Math.floor(Math.random() * (ms / 4));
-  ms += jitter;
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms + jitter));
 }

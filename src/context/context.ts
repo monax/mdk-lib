@@ -1,18 +1,18 @@
-import EventEmitter from 'events';
+import EventEmitter from 'node:events';
 
 export const defaultBackoffConfig = {
-  // The minimum pause when backoff() is awaited
+  /** The minimum pause when backoff() is awaited */
   baseBackoffMs: 100,
-  // The maximum pause when backoff() is awaited
+  /** The maximum pause when backoff() is awaited */
   maxBackoffMs: 30_000,
-  // Maximum number of consecutive errors before failing
-  maxRetries: Infinity,
-  // The exponent of the backoff
+  /** Maximum number of consecutive errors before failing */
+  maxRetries: Number.POSITIVE_INFINITY,
+  /** The exponent of the backoff */
   backoffRate: 1.2,
-  // Maximum amount of jitter to add to backoff
+  /** Maximum amount of jitter to add to backoff */
   jitterMs: 15,
-  // Amount of time to wait before cancelling
-  timeoutMs: Infinity,
+  /** Amount of time to wait before cancelling */
+  timeoutMs: Number.POSITIVE_INFINITY,
 };
 
 export type BackoffConfig = typeof defaultBackoffConfig;
@@ -47,7 +47,7 @@ type Timeout = ReturnType<typeof setTimeout>;
 // Context allows the outermost caller to define cancellation and timeout conditions that will cancel child Contexts automatically
 export class Context {
   public readonly backoffConfig: BackoffConfig;
-  private _cancellation: Cancellation | void = undefined;
+  private _cancellation: Cancellation | undefined = undefined;
   private _retries = 0;
   private _backoffMs = 0;
   private _lastErr: unknown;
@@ -103,7 +103,9 @@ export class Context {
       cancel(signal ? `${signal} received, cancelling root context...` : `${name} shutting down`);
     }
 
-    ['SIGINT', 'SIGTERM', 'SIGQUIT'].forEach((k) => process.on(k, () => shutdown(k)));
+    for (const signal of ['SIGINT', 'SIGTERM', 'SIGQUIT']) {
+      process.on(signal, () => shutdown(signal));
+    }
 
     return { ctx, shutdown };
   }
@@ -117,7 +119,7 @@ export class Context {
     this._name = name;
     this.backoffConfig = { ...defaultBackoffConfig, ...backoffConfig };
     this.eventEmitter = new EventEmitter();
-    this.eventEmitter.setMaxListeners(Infinity);
+    this.eventEmitter.setMaxListeners(Number.POSITIVE_INFINITY);
     this.cancelledPromise = new Promise((resolve) => this.eventEmitter.on(Context.cancelledEventName, resolve));
     // There should be exactly one context with no parent - the background Context
     if (parent) {
@@ -131,7 +133,7 @@ export class Context {
     return this.cancelled;
   }
 
-  get cancellation(): Cancellation | void {
+  get cancellation(): Cancellation | undefined {
     return this._cancellation ? { ...this._cancellation } : undefined;
   }
 
@@ -146,7 +148,7 @@ export class Context {
     this._lastErr = null;
 
     clearTimeout(this.timeout);
-    if (this.backoffConfig.timeoutMs !== Infinity) {
+    if (this.backoffConfig.timeoutMs !== Number.POSITIVE_INFINITY) {
       this.timeout = setTimeout(
         () => this._cancel(`[Context(${this.path})] timeout (${this.backoffConfig.timeoutMs}ms) exceeded`),
         this.backoffConfig.timeoutMs,
@@ -203,7 +205,7 @@ export class Context {
     let path = this.name;
     let parent = this.parent;
     while (parent) {
-      path = parent.name + '/' + path;
+      path = `${parent.name}/${path}`;
       parent = parent.parent;
     }
     return path;

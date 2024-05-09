@@ -1,4 +1,4 @@
-import { AnyQuery, Querier, QueryResult, QueryResultRow } from './query.js';
+import type { AnyQuery, Querier, QueryResult, QueryResultRow } from './query.js';
 
 export type IsolationLevel = 'READ UNCOMMITTED' | 'READ COMMITTED' | 'REPEATABLE READ' | 'SERIALIZABLE';
 export type AccessMode = 'READ WRITE' | 'READ ONLY';

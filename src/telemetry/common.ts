@@ -1,12 +1,12 @@
-import { LogLevel } from 'mdk-schema';
+import type { LogLevel } from 'mdk-schema';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AnyClass = new (...args: any) => any;
+// biome-ignore lint/suspicious/noExplicitAny: just any
+export type AnyClass = new (..._args: any) => any;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type AnyAbstractClass = abstract new (...args: any) => any;
+// biome-ignore lint/suspicious/noExplicitAny: just any
+export type AnyAbstractClass = abstract new (..._args: any) => any;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: just any
 export type AnyFunction = (...args: any[]) => any;
 
 export const logLevelMap: Record<LogLevel, number> = {

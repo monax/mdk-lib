@@ -7,6 +7,7 @@ export type LocksFrame = { locks: ILocksRepo };
 
 @coreTelemetry
 export class LocksRepo {
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: nothing else to do
   constructor(private readonly querier: Querier) {}
 
   async createLock({ namespace, lockName }: { namespace: string; lockName: string }): Promise<void> {

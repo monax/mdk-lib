@@ -1,4 +1,4 @@
-import { AnyAbstractClass, AnyClass } from './common.js';
+import type { AnyAbstractClass, AnyClass } from './common.js';
 import { log, logExceptions } from './log.js';
 import { callTimer, counter } from './metrics.js';
 import { telemetry } from './telemetry.js';
@@ -19,7 +19,7 @@ const createSyntheticMemberContext = (
   addInitializer: () => {
     throw 'Not implemented';
   },
-  /* eslint-disable @typescript-eslint/no-explicit-any */
+  // biome-ignore lint/suspicious/noExplicitAny: just any
   access: { has: (obj) => name in (obj as any), get: (obj) => (obj as any)[name] },
   metadata: {},
 });
@@ -28,6 +28,7 @@ const createSyntheticMemberContext = (
  * coreTelemetry instruments a class with standard telemetry decorators applied to its instance members.  Update
  * `decorators` in coreTelemetry.ts to add or remove decorator factories.
  */
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function coreTelemetry(target: any, context: ClassDecoratorContext<AnyClass | AnyAbstractClass>) {
   if (!context || !context.name) {
     console.warn(`Unable to configure coreTelemetry for ${target.name}`);
@@ -36,7 +37,7 @@ export function coreTelemetry(target: any, context: ClassDecoratorContext<AnyCla
 
   console.log(`Enabling Core Telemetry on ${context.name} (${decorators.map((d) => d.name).join(', ')})`);
 
-  const decoPrefix = `__mnxcoret_`;
+  const decoPrefix = '__mnxcoret_';
 
   return new Proxy(target, {
     construct(target, argArray) {
@@ -44,6 +45,7 @@ export function coreTelemetry(target: any, context: ClassDecoratorContext<AnyCla
 
       if (!target.prototype[`${decoPrefix}coretdecorated`]) {
         const props = Object.getOwnPropertyNames(target.prototype);
+        // biome-ignore lint/complexity/noForEach: todo
         props
           .filter((p) => p !== 'constructor')
           .filter((p) => typeof target.prototype[p] === 'function')

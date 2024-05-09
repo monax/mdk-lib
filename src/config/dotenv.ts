@@ -1,6 +1,6 @@
+import { join } from 'node:path';
 import { config } from 'dotenv';
-import { NodeEnv } from 'mdk-schema/dist/environment.js';
-import { join } from 'path';
+import type { NodeEnv } from 'mdk-schema/dist/environment.js';
 
 /**
  * Load .env files from package directory. Path a reliable absolute path (i.e. ideally not process.cwd()) so that

@@ -1,9 +1,9 @@
 import { Breadcrumb, EventHint, getCurrentHub } from '@sentry/node';
-import { ConfigBag, LogLevel, getConfigBag, getEnv, node } from 'mdk-schema';
+import { type ConfigBag, LogLevel, getConfigBag, getEnv, node } from 'mdk-schema';
 import { nanoid } from 'nanoid';
 import { Counter, Histogram, Registry, collectDefaultMetrics, exponentialBuckets, linearBuckets } from 'prom-client';
 import { z } from 'zod';
-import { AnyClass, AnyFunction, logLevelMap } from './common.js';
+import { type AnyClass, type AnyFunction, logLevelMap } from './common.js';
 
 const logLevelStr = LogLevel.parse(getEnv('LOG_LEVEL', 'crit'));
 const logLevel = logLevelMap[logLevelStr];
@@ -13,7 +13,7 @@ const logLevel = logLevelMap[logLevelStr];
  * @param message
  * @param minLogLevel
  */
-export function telemetry(message: string = '', minLogLevel: LogLevel = 'debug') {
+export function telemetry(message = '', minLogLevel: LogLevel = 'debug') {
   return function telemetry(originalMethod: AnyFunction, context: ClassMethodDecoratorContext) {
     return logLevel > logLevelMap[minLogLevel]
       ? originalMethod
@@ -30,7 +30,7 @@ function telemetryKernel(
 ) {
   const methodName = String(context.name);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: just any
   return function (this: AnyClass, ...args: any[]) {
     tel.addBreadcrumb({ type: `${this.constructor.name}.${methodName}`, message, data: { params } });
 
@@ -148,9 +148,9 @@ export class Telemetry {
       this.counters[name] = counter;
       this.register.registerMetric(counter);
       return counter;
-    } else {
-      return this.counters[name];
     }
+
+    return this.counters[name];
   }
 
   ensureHistogram(name: string, help: string, labels: string[], buckets?: BucketConfig | number[]): Histogram {
@@ -169,9 +169,9 @@ export class Telemetry {
       this.register.registerMetric(histogram);
 
       return histogram;
-    } else {
-      return this.histograms[name];
     }
+
+    return this.histograms[name];
   }
 
   incrCounter(name: string, help: string, value: number, labels?: Record<string, string>) {

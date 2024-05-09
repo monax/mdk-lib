@@ -13,7 +13,7 @@ type FilterFlag<K extends string> = `filter${Capitalize<K>}`;
 const getFilterFlag = <T extends string>(str: T) =>
   `filter${str.charAt(0).toUpperCase() + str.slice(1)}` as FilterFlag<T>;
 
-type ParamType = readonly unknown[] | void;
+type ParamType = readonly unknown[] | undefined | null;
 
 type FilterParamsWithFlags<T extends Record<string, ParamType>> = {
   [k in keyof T]-?: null | undefined extends T[k] ? [null] : NonNullable<T[k]>;

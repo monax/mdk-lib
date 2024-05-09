@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest';
 import { Context } from './context.js';
 
-describe('Context', function () {
-  test('Times out', async function () {
+describe('Context', () => {
+  test('Times out', async () => {
     const timeoutMs = 10;
     const { ctx } = Context.new('Timeout', { timeoutMs });
     expect(ctx.cancelled).toEqual(false);
@@ -14,7 +14,7 @@ describe('Context', function () {
     }
   });
 
-  test('Fails after maxRetries', async function () {
+  test('Fails after maxRetries', async () => {
     const maxRetries = 3;
     const { ctx } = Context.new('Timeout', { maxRetries });
     // Accept 3 retries
@@ -40,7 +40,7 @@ describe('Context', function () {
     }
   });
 
-  test('Parent cancels child', async function () {
+  test('Parent cancels child', async () => {
     const { ctx: parentCtx, cancel } = Context.new('Parent');
     const { ctx } = Context.from(parentCtx, 'Child');
     expect(parentCtx.cancelled).toEqual(false);
@@ -56,7 +56,7 @@ describe('Context', function () {
     }
   });
 
-  test('Child does not cancel parent', async function () {
+  test('Child does not cancel parent', async () => {
     const { ctx: parentCtx } = Context.new('Parent');
     const { ctx, cancel } = Context.from(parentCtx, 'Child');
     expect(parentCtx.cancelled).toEqual(false);
@@ -69,7 +69,7 @@ describe('Context', function () {
     }
   });
 
-  test('Can wait', async function () {
+  test('Can wait', async () => {
     const { ctx, cancel } = Context.new('Wait');
     const cancelled = ctx.wait();
     cancel('foo');
@@ -77,7 +77,7 @@ describe('Context', function () {
     expect(cancellation.reason).toEqual('foo');
   });
 
-  test('Can wait wrapped', async function () {
+  test('Can wait wrapped', async () => {
     const { ctx: grandparent } = Context.new('Wait0');
     const { ctx: parent, cancel } = Context.from(grandparent, 'Wait1');
     const { ctx: child1 } = Context.from(parent, 'Wait2');
@@ -91,7 +91,7 @@ describe('Context', function () {
     expect(grandparent.isCancelled()).toBeFalsy();
   });
 
-  test('Escapes backoff when cancelled', async function () {
+  test('Escapes backoff when cancelled', async () => {
     const { ctx, cancel } = Context.new('Backoff', { baseBackoffMs: 100_000 });
     const [start] = process.hrtime();
     // Start long backoff

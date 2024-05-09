@@ -1,6 +1,6 @@
 import { JSONPath } from 'jsonpath-plus';
-import { AnyClass, AnyFunction } from './common.js';
-import { BucketConfig, Telemetry } from './telemetry.js';
+import type { AnyClass, AnyFunction } from './common.js';
+import { type BucketConfig, Telemetry } from './telemetry.js';
 
 // ---- Namespace ---
 
@@ -47,8 +47,8 @@ const stdReducers = {
 
 // --- Incrementer functions
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Incrementer = (name: string, help: string, json?: any, bucketConfig?: BucketConfig | number[]) => void | undefined;
+// biome-ignore lint/suspicious/noExplicitAny: just any for now
+type Incrementer = (name: string, help: string, json?: any, bucketConfig?: BucketConfig | number[]) => void;
 
 const pathIncrementer =
   (path: string, reducer: Reducer, metricSetter: MetricSetter, labelPath?: string, labelName?: string): Incrementer =>
@@ -58,7 +58,7 @@ const pathIncrementer =
       labelName && labelPath
         ? Object.fromEntries([[labelName, String(JSONPath({ path: labelPath, json }))]])
         : undefined;
-    if (isNaN(num)) {
+    if (Number.isNaN(num)) {
       console.log(`Result parsing for metric ${name} is NaN`);
     } else {
       metricSetter(name, help, num, labels, bucketConfig);
@@ -171,6 +171,7 @@ export function callTimer() {
             console.log(ex);
           }
         },
+        // biome-ignore lint/suspicious/noEmptyBlockStatements: todo
         () => {},
       );
       return result;
@@ -209,8 +210,8 @@ function applyResultMetric(opts: string | DataCounterOpts | HistogramOpts, metri
           source: opts.source || 'result',
         };
 
-  return function (originalMethod: AnyFunction, context: ClassMethodDecoratorContext) {
-    return metricKernel(
+  return (originalMethod: AnyFunction, context: ClassMethodDecoratorContext) =>
+    metricKernel(
       originalMethod,
       context,
       pathIncrementer(path, reducer, metricSetter, labelPath, labelName),
@@ -220,7 +221,6 @@ function applyResultMetric(opts: string | DataCounterOpts | HistogramOpts, metri
       description,
       bucketConfig,
     );
-  };
 }
 
 function metricKernel(
@@ -256,6 +256,7 @@ function metricKernel(
           console.log(ex);
         }
       },
+      // biome-ignore lint/suspicious/noEmptyBlockStatements: todo
       () => {},
     );
 

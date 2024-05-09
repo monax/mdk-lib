@@ -1,6 +1,6 @@
 import { isFunction } from 'mdk-schema';
-import { Querier } from './query.js';
-import { ITransactor } from './transactor.js';
+import type { Querier } from './query.js';
+import type { ITransactor } from './transactor.js';
 
 export type LiftedTransactor<Tx> = <T>(f: (tx: Tx) => Promise<T>) => Promise<T>;
 

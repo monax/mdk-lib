@@ -1,14 +1,14 @@
-import { PgConfig } from 'mdk-schema';
+import type { PgConfig } from 'mdk-schema';
 import pg from 'pg';
 import { Transactor } from './impl/transactor.js';
-import { ITransactor } from './transactor.js';
+import type { ITransactor } from './transactor.js';
 
 export async function withTemplateDatabase(
   templateName: string,
   config: PgConfig,
   callback: (transactor: ITransactor) => Promise<void>,
 ) {
-  const database = templateName + '_' + Math.random().toString(36).substring(2, 10);
+  const database = `${templateName}_${Math.random().toString(36).substring(2, 10)}`;
 
   const client = new pg.Client({ user: config.POSTGRES_USER, password: config.POSTGRES_PASSWORD });
   await client.connect();
