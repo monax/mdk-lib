@@ -30,6 +30,8 @@ const createSyntheticMemberContext = (
  */
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function coreTelemetry(target: any, context: ClassDecoratorContext<AnyClass | AnyAbstractClass>) {
+  if (process.env.VITEST) return target;
+
   if (!context || !context.name) {
     console.warn(`Unable to configure coreTelemetry for ${target.name}`);
     return target;
