@@ -31,7 +31,7 @@ importers:
         version: 8.1.0
       mdk-schema:
         specifier: github:monax/mdk-schema
-        version: https://codeload.github.com/monax/mdk-schema/tar.gz/2b3614ab1850a0f4badd1d3e996927805017db1f(typescript@5.4.5)(zod@3.23.5)
+        version: https://codeload.github.com/monax/mdk-schema/tar.gz/0996ab7fc0357273def3720e54439fb6cbf455dd(typescript@5.4.5)(zod@3.23.5)
       nanoid:
         specifier: ^5.0.7
         version: 5.0.7
@@ -1094,9 +1094,9 @@ packages:
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
-  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/2b3614ab1850a0f4badd1d3e996927805017db1f:
-    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/2b3614ab1850a0f4badd1d3e996927805017db1f}
-    version: 1.0.6
+  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/0996ab7fc0357273def3720e54439fb6cbf455dd:
+    resolution: {tarball: https://codeload.github.com/monax/mdk-schema/tar.gz/0996ab7fc0357273def3720e54439fb6cbf455dd}
+    version: 1.0.7
     peerDependencies:
       zod: 3.23.5
     peerDependenciesMeta:
@@ -2794,7 +2794,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/2b3614ab1850a0f4badd1d3e996927805017db1f(typescript@5.4.5)(zod@3.23.5):
+  mdk-schema@https://codeload.github.com/monax/mdk-schema/tar.gz/0996ab7fc0357273def3720e54439fb6cbf455dd(typescript@5.4.5)(zod@3.23.5):
     dependencies:
       bigdecimal: bigdecimal.js@1.3.0
       buffer: 6.0.3
