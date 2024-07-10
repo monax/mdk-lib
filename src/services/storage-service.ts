@@ -22,7 +22,7 @@ export class StorageService implements IStorageService {
     });
   }
 
-  private bucketName(type: BucketType) {
+  protected bucketName(type: BucketType) {
     return type === 'public' ? this.config.GCS_PUBLIC_FILES_BUCKET : this.config.GCS_PRIVATE_FILES_BUCKET;
   }
 
