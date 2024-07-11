@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { Counter, Histogram, Registry, collectDefaultMetrics, exponentialBuckets, linearBuckets } from 'prom-client';
 import { z } from 'zod';
 import { type AnyClass, type AnyFunction, logLevelMap } from './common.js';
+import { logger } from './log.js';
 
 const logLevelStr = LogLevel.parse(getEnv('LOG_LEVEL', 'crit'));
 const logLevel = logLevelMap[logLevelStr];
@@ -94,7 +95,7 @@ export class Telemetry {
   private constructor({ SENTRY_DSN, TELEMETRY_OUTPUTS, NODE_ENV }: TelemetryConfigBag) {
     const outputs = TELEMETRY_OUTPUTS ?? (NODE_ENV === 'local' || !SENTRY_DSN) ? ['logger'] : ['logger', 'sentry'];
     this.outputs = outputs.reduce((acc, output) => ({ ...acc, [output]: true }), {} as Record<Output, boolean>);
-    this.logger = console.log;
+    this.logger = logger.log;
     const register = new Registry();
     collectDefaultMetrics({ register, labels: { instance: this.instance } });
     this.register = register;

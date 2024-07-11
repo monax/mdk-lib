@@ -1,5 +1,5 @@
 import type { AnyAbstractClass, AnyClass } from './common.js';
-import { log, logExceptions } from './log.js';
+import { log, logExceptions, logger } from './log.js';
 import { callTimer, counter } from './metrics.js';
 import { telemetry } from './telemetry.js';
 
@@ -33,11 +33,11 @@ export function coreTelemetry(target: any, context: ClassDecoratorContext<AnyCla
   if (process.env.VITEST) return target;
 
   if (!context || !context.name) {
-    console.warn(`Unable to configure coreTelemetry for ${target.name}`);
+    logger.warn(`Unable to configure coreTelemetry for ${target.name}`);
     return target;
   }
 
-  console.log(`Enabling Core Telemetry on ${context.name} (${decorators.map((d) => d.name).join(', ')})`);
+  logger.log(`Enabling Core Telemetry on ${context.name} (${decorators.map((d) => d.name).join(', ')})`);
 
   const decoPrefix = '__mnxcoret_';
 

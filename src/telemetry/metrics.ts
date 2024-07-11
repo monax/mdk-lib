@@ -1,5 +1,6 @@
 import { JSONPath } from 'jsonpath-plus';
 import type { AnyClass, AnyFunction } from './common.js';
+import { logger } from './log.js';
 import { type BucketConfig, Telemetry } from './telemetry.js';
 
 // ---- Namespace ---
@@ -59,7 +60,7 @@ const pathIncrementer =
         ? Object.fromEntries([[labelName, String(JSONPath({ path: labelPath, json }))]])
         : undefined;
     if (Number.isNaN(num)) {
-      console.log(`Result parsing for metric ${name} is NaN`);
+      logger.log(`Result parsing for metric ${name} is NaN`);
     } else {
       metricSetter(name, help, num, labels, bucketConfig);
       // MetricsService.defaultMetrics?.incrCounter(name, help, num, labels);
@@ -167,8 +168,8 @@ export function callTimer() {
               undefined,
             );
           } catch (ex) {
-            console.log(`Exception in histogram for ${this.constructor.name}.${String(context.name)}`);
-            console.log(ex);
+            logger.log(`Exception in histogram for ${this.constructor.name}.${String(context.name)}`);
+            logger.log(ex);
           }
         },
         // biome-ignore lint/suspicious/noEmptyBlockStatements: todo
@@ -252,8 +253,8 @@ function metricKernel(
         try {
           incrementer(name, help, source === 'parameter' ? args : r, bucketConfig);
         } catch (ex) {
-          console.log(`Exception updating metric ${name}`);
-          console.log(ex);
+          logger.log(`Exception updating metric ${name}`);
+          logger.log(ex);
         }
       },
       // biome-ignore lint/suspicious/noEmptyBlockStatements: todo

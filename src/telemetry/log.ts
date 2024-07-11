@@ -2,6 +2,18 @@ import { JSONPath } from 'jsonpath-plus';
 import { LogLevel } from 'mdk-schema';
 import { type AnyClass, type AnyFunction, logLevelMap } from './common.js';
 
+// biome-ignore lint/suspicious/noEmptyBlockStatements: it's a no-op
+const noOp = () => {};
+const disableLogging = !!process.env.DISABLE_TELEMETRY_LOGGING;
+export const logger = {
+  log: disableLogging ? noOp : console.log,
+  trace: disableLogging ? noOp : console.trace,
+  debug: disableLogging ? noOp : console.debug,
+  info: disableLogging ? noOp : console.info,
+  warn: disableLogging ? noOp : console.warn,
+  error: disableLogging ? noOp : console.error,
+};
+
 // -----
 
 type LogDetailOpts = { minLogLevel: LogLevel; paths: string[] };
@@ -90,8 +102,8 @@ export function logExceptions(minLogLevel: LogLevel = 'debug') {
           try {
             return originalMethod.apply(this, args);
           } catch (e) {
-            console.error(`Exception in ${this.constructor.name}.${String(context.name)}`);
-            console.log(JSON.stringify(e, null, 2));
+            logger.error(`Exception in ${this.constructor.name}.${String(context.name)}`);
+            logger.log(JSON.stringify(e, null, 2));
             throw e;
           }
         };
@@ -113,7 +125,7 @@ function logKernel(
     // Set up a console log helper function
     correlationIndex++;
     const ci = correlationIndex;
-    const log = (msg: string) => console.log(`LOG [${ci}]: ${msg}`);
+    const log = (msg: string) => logger.log(`LOG [${ci}]: ${msg}`);
     const name = this ? this.constructor.name : 'Unknown';
 
     log(`Entering method ${name}.${methodName}`);
@@ -133,8 +145,8 @@ function logKernel(
           try {
             log(`${path}: \n${JSON.stringify(JSONPath({ path, json: result }), null, 2)}`);
           } catch (ex) {
-            console.log(`Exception logging result for ${path}`);
-            console.log(ex);
+            logger.log(`Exception logging result for ${path}`);
+            logger.log(ex);
           }
         }
       },
