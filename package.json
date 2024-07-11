@@ -1,6 +1,6 @@
 {
   "name": "mdk-lib",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Monax Development Kit - Lib",
   "type": "module",
   "license": "Apache-2.0",

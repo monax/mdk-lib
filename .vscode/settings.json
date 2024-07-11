@@ -6,7 +6,8 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": "explicit"
+    "source.organizeImports.biome": "explicit",
+    "quickfix.biome": "explicit"
   },
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -23,5 +24,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "eslint.enable": false
+  "eslint.enable": false,
+  "prettier.enable": false
 }
