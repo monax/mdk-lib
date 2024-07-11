@@ -11,7 +11,6 @@ export type BucketType = 'public' | 'private';
 
 export type IStorageService = InstanceType<typeof StorageService>;
 
-@coreTelemetry
 export class StorageService implements IStorageService {
   readonly storage: Storage;
 
