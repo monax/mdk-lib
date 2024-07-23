@@ -3,10 +3,12 @@ import { Storage } from '@google-cloud/storage';
 import type { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 import type { StorageConfig } from 'mdk-schema';
 import { getKnownExtensionMimeType } from 'mdk-schema/dist/mime-types.js';
+import { z } from 'zod';
 
 export { SaveData, SaveOptions } from '@google-cloud/storage/build/esm/src/file.js';
 
-export type BucketType = 'public' | 'private';
+export type BucketType = z.infer<typeof BucketType>;
+export const BucketType = z.enum(['public', 'private']);
 
 export type IStorageService = InstanceType<typeof StorageService>;
 
