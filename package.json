@@ -1,6 +1,6 @@
 {
   "name": "mdk-lib",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Monax Development Kit - Lib",
   "type": "module",
   "license": "Apache-2.0",
@@ -43,7 +43,7 @@
     "pg": "^8.11.5",
     "pg-types": "^4.0.2",
     "prom-client": "^15.1.2",
-    "zod": "3.23.5"
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
