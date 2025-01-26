@@ -1,4 +1,4 @@
-import type { LogLevel } from 'mdk-schema';
+import type { LogLevel } from '@monaxlabs/mdk-schema';
 
 // biome-ignore lint/suspicious/noExplicitAny: just any
 export type AnyClass = new (..._args: any) => any;

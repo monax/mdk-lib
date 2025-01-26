@@ -1,5 +1,5 @@
+import { LogLevel } from '@monaxlabs/mdk-schema';
 import { JSONPath } from 'jsonpath-plus';
-import { LogLevel } from 'mdk-schema';
 import { type AnyClass, type AnyFunction, logLevelMap } from './common.js';
 
 // biome-ignore lint/suspicious/noEmptyBlockStatements: it's a no-op

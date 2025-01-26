@@ -1,5 +1,5 @@
+import { type ConfigBag, LogLevel, getConfigBag, getEnv, node } from '@monaxlabs/mdk-schema';
 import { Breadcrumb, EventHint, getCurrentHub } from '@sentry/node';
-import { type ConfigBag, LogLevel, getConfigBag, getEnv, node } from 'mdk-schema';
 import { nanoid } from 'nanoid';
 import { Counter, Histogram, Registry, collectDefaultMetrics, exponentialBuckets, linearBuckets } from 'prom-client';
 import { z } from 'zod';

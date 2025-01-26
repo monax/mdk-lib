@@ -1,6 +1,6 @@
 import type { Server } from 'node:http';
+import type { MetricsConfig } from '@monaxlabs/mdk-schema';
 import express, { type Express } from 'express';
-import type { MetricsConfig } from 'mdk-schema';
 import { type Cancellation, Context } from '../context/context.js';
 import { Telemetry } from '../telemetry/telemetry.js';
 

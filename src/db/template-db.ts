@@ -1,4 +1,4 @@
-import type { PgConfig } from 'mdk-schema';
+import type { PgConfig } from '@monaxlabs/mdk-schema';
 import pg from 'pg';
 import { Transactor } from './impl/transactor.js';
 import type { ITransactor } from './transactor.js';
