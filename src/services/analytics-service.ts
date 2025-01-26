@@ -1,5 +1,5 @@
+import type { AnalyticsConfig, AnalyticsContext, IAnalyticsEvent, IdentityOptions } from '@monaxlabs/mdk-schema';
 import { Analytics } from '@segment/analytics-node';
-import type { AnalyticsConfig, AnalyticsContext, IAnalyticsEvent, IdentityOptions } from 'mdk-schema';
 import { coreTelemetry } from '../telemetry/core.js';
 
 export type IAnalyticsService = InstanceType<typeof AnalyticsService>;

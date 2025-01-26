@@ -1,4 +1,4 @@
-import { isFunction } from 'mdk-schema';
+import { isFunction } from '@monaxlabs/mdk-schema';
 import type { Querier } from './query.js';
 import type { ITransactor } from './transactor.js';
 

@@ -1,4 +1,4 @@
-import type { PgConfig } from 'mdk-schema';
+import type { PgConfig } from '@monaxlabs/mdk-schema';
 import { type PoolConfig, default as Postgres, type QueryResult, type QueryResultRow } from 'pg';
 import { coreTelemetry } from '../../telemetry/core.js';
 import type { AnyQuery, Querier } from '../query.js';

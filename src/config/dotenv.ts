@@ -1,6 +1,6 @@
 import { join } from 'node:path';
+import type { NodeEnv } from '@monaxlabs/mdk-schema/dist/environment.js';
 import { config } from 'dotenv';
-import type { NodeEnv } from 'mdk-schema/dist/environment.js';
 
 /**
  * Load .env files from package directory. Path a reliable absolute path (i.e. ideally not process.cwd()) so that
