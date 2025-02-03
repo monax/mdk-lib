@@ -1,4 +1,4 @@
-import type { Querier } from '../db/query';
+import type { Querier } from '../db/query.js';
 
 export class BaseRepo {
   constructor(protected readonly querier: Querier) {
