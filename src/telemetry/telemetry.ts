@@ -93,7 +93,7 @@ export class Telemetry {
   }
 
   private constructor({ SENTRY_DSN, TELEMETRY_OUTPUTS, NODE_ENV }: TelemetryConfigBag) {
-    const outputs = TELEMETRY_OUTPUTS ?? (NODE_ENV === 'local' || !SENTRY_DSN) ? ['logger'] : ['logger', 'sentry'];
+    const outputs = (TELEMETRY_OUTPUTS ?? (NODE_ENV === 'local' || !SENTRY_DSN)) ? ['logger'] : ['logger', 'sentry'];
     this.outputs = outputs.reduce((acc, output) => ({ ...acc, [output]: true }), {} as Record<Output, boolean>);
     this.logger = logger.log;
     const register = new Registry();
