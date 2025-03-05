@@ -11,10 +11,12 @@ export const BucketType = z.enum(['public', 'private']);
 
 export type IStorageService = InstanceType<typeof StorageService>;
 
-export class StorageService<B extends BucketType> implements IStorageService {
+export class StorageService<B extends BucketType = BucketType, C extends StorageConfig = StorageConfig>
+  implements IStorageService
+{
   readonly storage: Storage;
 
-  constructor(protected readonly config: StorageConfig) {
+  constructor(protected readonly config: C) {
     this.storage = new Storage({
       projectId: config.GCP_PROJECT_ID,
       keyFilename: config.GCP_KEY_FILE && fs.existsSync(config.GCP_KEY_FILE) ? config.GCP_KEY_FILE : undefined,
