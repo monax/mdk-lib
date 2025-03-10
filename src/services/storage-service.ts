@@ -11,7 +11,7 @@ export const BucketType = z.enum(['public', 'private']);
 
 export type IStorageService = InstanceType<typeof StorageService>;
 
-export class StorageService<B extends BucketType = BucketType, C extends StorageConfig = StorageConfig>
+export class StorageService<B extends string = BucketType, C extends StorageConfig = StorageConfig>
   implements IStorageService
 {
   readonly storage: Storage;
